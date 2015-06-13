@@ -40,8 +40,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
             print("Successfully made \(person)")
         } catch PersonViewModel.InputError.MissingInformation {
             print("Your name or age is missing")
-        } catch PersonViewModel.InputError.IncorrectAge {
-            print("\(ageField.text) is not a valid age")
+        } catch PersonViewModel.InputError.IncorrectAge(let invalidAge) {
+            print("\(invalidAge) is not a valid age")
         } catch {
             print("Ok, I don't know what happened")
         }

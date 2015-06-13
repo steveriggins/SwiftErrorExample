@@ -16,7 +16,7 @@ struct PersonViewModel {
     
     enum InputError : ErrorType {
         case MissingInformation
-        case IncorrectAge
+        case IncorrectAge(String)
     }
     
     func createPerson() throws -> Person {
@@ -27,7 +27,7 @@ struct PersonViewModel {
         }
         
         guard let ageFormatted = Int(age) else {
-            throw InputError.IncorrectAge
+            throw InputError.IncorrectAge(age)
         }
         
         return Person(name: name, age: ageFormatted)
