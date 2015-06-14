@@ -26,7 +26,7 @@ struct PersonViewModel {
             throw InputError.MissingInformation
         }
         
-        guard let ageFormatted = Int(age) else {
+        guard let ageFormatted = Int(age) where ageFormatted > 0 else {
             throw InputError.IncorrectAge(age)
         }
         
