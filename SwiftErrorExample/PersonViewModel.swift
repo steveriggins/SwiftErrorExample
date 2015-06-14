@@ -22,7 +22,7 @@ struct PersonViewModel {
     func createPerson() throws -> Person {
         // I updated this code from Natasha's original to make sure neither name nor age can be an empty string
         // This taught me about Swift filtering
-        guard let name = name where name != "", let age = age where age != "" else {
+        guard let name = name where name != "", let age = age where !age.isEmpty  else {
             throw InputError.MissingInformation
         }
         
